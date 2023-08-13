@@ -80,7 +80,7 @@ const dummyData = [
 const Home = () => {
   return (
     <div className=' flex-1 flex-col  divide-y divide-solid divide-black/30 '>
-      <div className='flex flex-row px-[104px] items-center justify-between'>
+      <div className='flex flex-row px-[104px] py-6 items-center justify-between'>
         <p className='font-manrope text-[40px] font-[600]  '>
           <span className='block'>Our</span>
           <span className='block'>Products</span>
