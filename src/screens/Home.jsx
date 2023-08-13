@@ -24,7 +24,7 @@ const dummyData = [
   {
     "id": 3,
     "image": headphone,
-    "name": "Noise-Canceling Headphones",
+    "name": "Noise-Canceling",
     "price": "Rs 8,900",
     "description": "Immersive listening experience",
     "rating": 5,
@@ -51,7 +51,7 @@ const dummyData = [
   {
     "id": 3,
     "image": headphone,
-    "name": "Noise-Canceling Headphones",
+    "name": "Noise-Canceling",
     "price": "Rs 8,900",
     "description": "Immersive listening experience",
     "rating": 3,
@@ -69,7 +69,7 @@ const dummyData = [
   {
     "id": 3,
     "image": headphone,
-    "name": "Noise-Canceling Headphones",
+    "name": "Noise-Canceling",
     "price": "Rs 8,900",
     "description": "Immersive listening experience",
     "rating": 4,
