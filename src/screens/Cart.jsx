@@ -2,6 +2,8 @@ import React from 'react'
 import CartItems from '../components/CartItems'
 import { useSelector } from 'react-redux'
 import { useMemo } from 'react'
+import empty1 from '../assets/empty1.jpg'
+import empty2 from '../assets/empty2.avif'
 
 const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -13,10 +15,10 @@ const Cart = () => {
 }, [cartItems]);
     
   return (
-    <>
-   
-    <div className='flex-1 flex-col divide-y divide-solid divide-black/30 '>
-      <div className='flex flex-row px-[104px] py-6 items-center justify-between'>
+
+    
+     <div className='flex-1 flex-col divide-y divide-solid divide-black/30 '>
+       <div className='flex flex-row px-[104px] py-6 items-center justify-between'>
         <p className='font-manrope text-[40px] font-[600] tracking-[.15rem]  '>
           <span className='block'>Review Items & </span>
           <span className='block'>Shipping</span>
@@ -32,6 +34,11 @@ const Cart = () => {
           </div>
         </div>
       </div>
+      {cartItems.length > 0 && (
+      <>
+     
+      
+    
       
       <div className='px-[103px] py-8 flex flex-col '>
      {cartItems.map((item) => (
@@ -43,10 +50,34 @@ const Cart = () => {
       <button className='bg-[#0E0E0E] text-[#ffffff] font-manrope
        font-bold text-[20px] px-[80px] py-[10px] rounded-[10px]'>Checkout</button>
       </div>
+      </>
+      )}
 
-      </div>
+      
+      {cartItems.length < 1 && (
+          
+           <div className="flex flex-col justify-center items-center tracking-[.10rem]">
+            
+              <img src={empty2} alt="empty-cart" border="0" width={300} height={300} className='mt-10' />
+              
+              <span className="text-xl font-bold font-manrope">
+                            Your cart is empty
+                        </span>
+                        <span className="text-center mt-4 font-manrope ">
+                            Looks like you have not added anything in your cart.
+                            <br />
+                            Go ahead and explore products.
+                        </span>
+                       <button className="py-4 px-8 rounded-full bg-black text-white text-lg
+                        font-medium cursor-pointer transition-transform active:scale-95 mb-3 hover:opacity-75 mt-8 font-manrope">
+                            Continue Shopping
+                       </button>
+
+           </div>
+      )}
+
     
-    </>
+    </div>
   )
 }
 

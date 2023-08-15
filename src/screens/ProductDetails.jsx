@@ -4,6 +4,8 @@ import { rating_star } from '../assets';
 import ProductDetailsCorousel from '../components/ProductDetailsCorousel';
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../store/cartSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductDetails = () => {
     
@@ -23,7 +25,22 @@ const ProductDetails = () => {
      console.log(id);
      console.log("Received state:", location.state);
 
+     const notify = () => {
+        toast.success("Success. Check your cart!", {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
+    };
+
     return (
+        <>
+        <ToastContainer />
         <div className='flex flex-row '>
             <div>
                 <ProductDetailsCorousel />
@@ -49,10 +66,15 @@ const ProductDetails = () => {
                 <div>
                     <button className='w-[190px] h-[52px] rounded-[10px] bg-black/90 text-white
                      font-manrope text-[16px] font-[700] leading-[23px]
-                      tracking-[1.6px] mt-[20px] cursor-pointer ' onClick={handleAddToCart}>Add to Cart</button>
+                      tracking-[1.6px] mt-[20px] cursor-pointer ' onClick={() => {
+                        handleAddToCart();
+                        notify();
+                      }}
+                        >Add to Cart</button>
                 </div>
             </div>
         </div>
+        </>
     )
 }
 
