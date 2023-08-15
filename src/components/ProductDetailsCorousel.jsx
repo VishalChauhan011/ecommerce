@@ -6,7 +6,7 @@ import deep from '../assets/deep.png';
 
 const ProductDetailsCorousel = () => {
     return (
-        <div className="text-white text-[20px] w-full max-w-[600px] mx-auto sticky top-[50px]">
+        <div className="text-white text-[20px] w-[650px] height-[610px] mx-auto sticky top-[50px] ">
             <Carousel
                 infiniteLoop={true}
                 showIndicators={false}
@@ -14,13 +14,10 @@ const ProductDetailsCorousel = () => {
                 thumbWidth={60}
                 className="productCarousel"
             >
-               
-                 <img src={deep} alt="Product" className='w-[100px] h-[px] p-5 '  />
-                 <img src={deep} alt="Product" className='w-[492px] h-[px] p-5 '  />
-                 <img src={deep} alt="Product" className='w-[100px] h-[px] p-5 '  />
-                 <img src={deep} alt="Product" className='w-[492px] h-[px] p-5 '  />
-                 
-                
+                 <img src={deep} alt="Product" className='w-[492px] h-[px] p-5 object-contain '  />
+                 <img src={deep} alt="Product" className='w-[492px] h-[px] p-5 object-contain '  />
+                 <img src={deep} alt="Product" className='w-[492px] h-[px] p-5 object-contain '  />
+                 <img src={deep} alt="Product" className='w-[492px] h-[px] p-5 object-contain '  />
             </Carousel>
         </div>
   )

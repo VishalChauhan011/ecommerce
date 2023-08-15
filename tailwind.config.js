@@ -20,6 +20,7 @@ module.exports = {
       fontFamily: {
         manrope: "Manrope",
         "redacted-script": "'Redacted Script'",
+        MajorMonoDisplay: ["Major Mono Display", "monospace"],
       },
       borderRadius: {
         "3xs": "10px",
