@@ -2,7 +2,7 @@ import React from 'react';
 import { favourite, rating_star, headphone } from '../assets';
 import { useNavigate } from "react-router-dom";
 
-const ShoppingCard = ({ image, name, price, description, rating, reviews }) => {
+const ShoppingCard = ({ id ,image, name, price, description, rating, reviews }) => {
   const ratingStars = Array.from({ length: rating }, (_, index) => (
     <img key={index} src={rating_star} alt={`Star ${index}`} className='mr-1' />
   ));
@@ -12,6 +12,7 @@ const ShoppingCard = ({ image, name, price, description, rating, reviews }) => {
   const handleClick = () => {
     navigate('/product', {
       state: {
+        id,
         image,
         name,
         price,
@@ -21,6 +22,7 @@ const ShoppingCard = ({ image, name, price, description, rating, reviews }) => {
       }
     });
   };
+  console.log("shopping",id);
 
   return (
     <div className='relative flex flex-col w-[296px] h-[364px] rounded-[10px] border border-solid border-black px-4 py-6 cursor-pointer mb-[45px] '>
@@ -30,7 +32,7 @@ const ShoppingCard = ({ image, name, price, description, rating, reviews }) => {
       <img src={image} className='w-full h-[47%]' alt="Product" />
       <div className='flex flex-row items-center justify-between mt-6'>
         <p className='font-manrope text-[16px] font-[700] tracking-[1.6px] leading-[23px]'>{name}</p>
-        <p className='font-manrope text-black/70 text-[16px] font-[700] tracking-[1.6px] leading-[23px]'>{price}</p>
+        <p className='font-manrope text-black/70 text-[16px] font-[700] tracking-[1.6px] leading-[23px]'>&#8377;{price}</p>
       </div>
       <p className='font-manrope text-black/70 text-[12px] font-[700] tracking-[1px] leading-[14px] mt-[13px]'>{description}</p>
       <div className='flex flex-row items-center my-[10px]'>
