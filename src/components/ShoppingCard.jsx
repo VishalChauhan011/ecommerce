@@ -34,7 +34,7 @@ const ShoppingCard = ({
   };
 
   return (
-    <div className="relative flex flex-col w-[296px] h-[364px] rounded-[10px] border border-solid border-black px-4 py-6 cursor-pointer mb-[45px] ">
+    <div className="relative flex flex-col w-[296px] h-[364px] rounded-[10px] border border-solid border-black px-4 py-4 cursor-pointer mb-[45px] ">
       <div className="flex w-[48px] h-[48px] rounded-full absolute top-3 left-3 items-center justify-center">
         <img
           src={favourite}
@@ -43,7 +43,7 @@ const ShoppingCard = ({
         />
       </div>
       <img src={image} className="w-full h-[47%]" alt="Product" />
-      <div className="flex flex-row items-center justify-between mt-6">
+      <div className="flex flex-row items-center justify-between mt-8">
         <p className="font-manrope text-[16px] font-[700] tracking-[1.6px] leading-[23px]">
           {name}
         </p>
@@ -60,16 +60,21 @@ const ShoppingCard = ({
           ({reviews})
         </p>
       </div>
-      <div
-        className="flex w-[132px] h-[45px] bg-black rounded-[14px] items-center justify-center border-[#808080] border-solid border-b-[6px] border-l-[6px] mt-[15px] "
-        onClick={handleClick}
-      >
-        <p className="font-manrope text-[16px] font-[700] text-white">
-          Shop Now
-        </p>
+      <div className='cursor-pointer relative w-[116px] h-[42px] mt-[20px] ml-[8px] '>
+        <div className='flex w-[116px] h-[42px] bg-black relative left-[-8px] top-[-8px] z-10 rounded-[10px] items-center justify-center border-solid border-2 border-black cursor-pointer font-manrope overflow-hidden transition-left
+                 transition-top duration-100 ease-in-out hover:translate-x-1 hover:translate-y-1 ' >
+                    <p className="font-manrope text-[15px] font-[700] text-white">
+            Shop Now
+          </p> 
+        </div>
+        <span className='h-[100%] w-[100%] bg-white border-2 border-black border-solid rounded-[8px] absolute left-0 top-0 box-border opacity-100 transition-opacity hover:duration-1000 hover:ease-linear ' ></span>
       </div>
     </div>
   );
 };
 
 export default ShoppingCard;
+
+{/* <p className="font-manrope text-[16px] font-[700] text-white">
+            Shop Now
+          </p> */}

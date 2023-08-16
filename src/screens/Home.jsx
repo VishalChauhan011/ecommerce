@@ -286,7 +286,7 @@ const Home = () => {
             <img src={filter_icon} className="ml-[10px] " />
           </div>
           <div className="flex flex-row items center ">
-            <p className="font-manrope text-[20px] font-[400] text-center">
+            <p className="font-manrope text-[20px] font-[400] ml-[63px] text-center">
               Sort
             </p>
             <img src={dropdown} className="ml-[10px] " />
