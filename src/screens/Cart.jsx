@@ -13,19 +13,24 @@ const Cart = () => {
         (total, val) => total + val.price, 0
     );
 }, [cartItems]);
+
+const handleContinueShopping = () => {
+  window.location.href = '/';
+};
     
   return (
 
     
-     <div className='flex-1 flex-col divide-y divide-solid divide-black/30 '>
-       <div className='flex flex-row px-[104px] py-6 items-center justify-between'>
+     <div className='w-full flex-1 flex-col divide-y divide-solid divide-black/30 '>
+       <div className=' flex flex-row px-[104px] py-6 items-center justify-between'>
         <p className='font-manrope text-[40px] font-[600] tracking-[.15rem]  '>
           <span className='block'>Review Items & </span>
           <span className='block'>Shipping</span>
         </p>
-        <div className='flex flex-row w-[277px] h-[74px] divide-x divide-solid
-         divide-black/50 rounded-full border-b-2 border-solid
-          border-black items-center justify-evenly bg-[#EBEFF8]'>
+        
+        <div className='flex flex-row w-[277px] h-[80px] rounded-[30px]
+         border-b-8 border-l-2 border-t-2 border-r-2 border-solid
+          border-black items-center justify-evenly bg-[#ffffff]'>
           <div className='flex flex-row items-center '>
             <p className='font-manrope text-[20px] font-[400] text-center '>
             <span className='block text-[20px] mt-2'>The total of cart is </span>
@@ -36,10 +41,6 @@ const Cart = () => {
       </div>
       {cartItems.length > 0 && (
       <>
-     
-      
-    
-      
       <div className='px-[103px] py-8 flex flex-col '>
      {cartItems.map((item) => (
        <CartItems key={item.key} item={item} />
@@ -52,8 +53,6 @@ const Cart = () => {
       </div>
       </>
       )}
-
-      
       {cartItems.length < 1 && (
           
            <div className="flex flex-col justify-center items-center tracking-[.10rem]">
@@ -69,10 +68,11 @@ const Cart = () => {
                             Go ahead and explore products.
                         </span>
                        <button className="py-4 px-8 rounded-full bg-black text-white text-lg
-                        font-medium cursor-pointer transition-transform active:scale-95 mb-3 hover:opacity-75 mt-8 font-manrope">
-                            Continue Shopping
+                        font-medium cursor-pointer transition-transform active:scale-95 mb-3 hover:opacity-75 mt-8 font-manrope"
+                        onClick={handleContinueShopping}
+                        >
+                            Continue Shopping 
                        </button>
-
            </div>
       )}
 
@@ -80,5 +80,8 @@ const Cart = () => {
     </div>
   )
 }
+
+  
+
 
 export default Cart
