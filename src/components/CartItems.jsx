@@ -13,7 +13,8 @@ const CartItems = ({item}) => {
     const quantityOptions = [1, 2, 3, 4, 5];
   return (
     <div className='flex justify-center'>
-      <div className='flex w-[819px] h-[204px] rounded-[10px] border border-solid border-black my-[20px]'>
+      <div className='flex w-[819px] h-[204px] rounded-[10px]
+       border border-solid border-black my-[20px] hover:border-r-4 hover:border-b-4'>
        
           <img src={deep} alt="Product" className='w-[190px] h-[161px] p-5 '  />
        
