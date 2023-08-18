@@ -14,10 +14,10 @@ const Icon = ({
 }) => {
   return (
     <div
-      className={`flex flex-row w-[190px] h-[61px] items-center p-2 ${
+      className={`flex flex-row w-[190px] h-[61px] items-center p-2 hover:border-2 hover:border-black hover:border-solid rounded-full ${
         isActive &&
         isActive === name &&
-        "bg-[#B4AFF0] rounded-full border-b-8 border-solid border-black "
+        "bg-[#B4AFF0] rounded-full border-t-2 border-l-2 border-r-2 border-b-8 border-solid border-black "
       } ${!disabled && "cursor-pointer"} ${styles} `}
       onClick={handleClick}
     >
@@ -46,8 +46,8 @@ const Sidebar = () => {
   };
   const [isActive, dispatch] = useReducer(reducer, "home");
   return (
-    <div className="flex flex-col ml-[100px] h-full items-center  pr-[30px] gap-2 ">
-      <div className="flex flex-col pt-[56px]">
+    <div className="flex flex-col ml-[100px] h-full items-center  pr-[30px] gap-2">
+      <div className="flex flex-col pt-[56px] gap-3">
         {navlinks.map((link) => (
           <Icon
             key={link.name}
@@ -62,7 +62,7 @@ const Sidebar = () => {
           />
         ))}
       </div>
-      <div className="w-[190px] h-[226px] bg-[#D6E35E] rounded-[20px] mt-[40px] relative ">
+      <div className="w-[190px] h-[226px] bg-[#D6E35E] border-2 border-black border-solid rounded-[20px] mt-[30px] relative ">
         <img src={star} className="absolute top-[-50px] right-[-30px] " />
         <p className="font-manrope text-[26px] font-bold ml-[20px] ">
           TREND PRODUCTS

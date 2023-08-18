@@ -34,7 +34,7 @@ const ShoppingCard = ({
   };
 
   return (
-    <div className="relative flex flex-col w-[296px] h-[364px] rounded-[10px] border border-solid border-black px-4 py-4 cursor-pointer mb-[45px] ">
+    <div className="relative flex flex-col w-[296px] h-[364px] rounded-[10px] border-2 border-solid border-black px-4 py-4 cursor-pointer mb-[45px] ">
       <div className="flex w-[48px] h-[48px] rounded-full absolute top-3 left-3 items-center justify-center">
         <img
           src={favourite}

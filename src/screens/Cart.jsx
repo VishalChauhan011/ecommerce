@@ -21,7 +21,7 @@ const handleContinueShopping = () => {
   return (
 
     
-     <div className='w-full flex-1 flex-col divide-y divide-solid divide-black/30 '>
+     <div className='w-full flex-1 flex-col divide-y-2 divide-solid divide-black '>
        <div className=' flex flex-row px-[104px] py-6 items-center justify-between'>
         <p className='font-manrope text-[40px] font-[600] tracking-[.15rem]  '>
           <span className='block'>Review Items & </span>
@@ -57,7 +57,7 @@ const handleContinueShopping = () => {
           
            <div className="flex flex-col justify-center items-center tracking-[.10rem]">
             
-              <img src={empty2} alt="empty-cart" border="0" width={300} height={300} className='mt-10' />
+              <img src={empty1} alt="empty-cart" border="0" width={300} height={300} className='mt-10' />
               
               <span className="text-xl font-bold font-manrope">
                             Your cart is empty
