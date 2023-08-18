@@ -60,9 +60,10 @@ const ShoppingCard = ({
           ({reviews})
         </p>
       </div>
-      <div className='cursor-pointer relative w-[116px] h-[42px] mt-[20px] ml-[8px] '>
+      <div className='cursor-pointer relative w-[116px] h-[42px] mt-[20px] ml-[8px]  '>
         <div className='flex w-[116px] h-[42px] bg-black relative left-[-8px] top-[-8px] z-10 rounded-[10px] items-center justify-center border-solid border-2 border-black cursor-pointer font-manrope overflow-hidden transition-left
-                 transition-top duration-100 ease-in-out hover:translate-x-1 hover:translate-y-1 ' >
+                 transition-top duration-100 ease-in-out hover:translate-x-1 hover:translate-y-1 '
+                 onClick={handleClick} >
                     <p className="font-manrope text-[15px] font-[700] text-white">
             Shop Now
           </p> 
