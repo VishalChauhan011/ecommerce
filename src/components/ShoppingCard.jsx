@@ -11,6 +11,7 @@ const ShoppingCard = ({
   rating,
   reviews,
   colors,
+  moreImages,
 }) => {
   const ratingStars = Array.from({ length: rating }, (_, index) => (
     <img key={index} src={rating_star} alt={`Star ${index}`} className="mr-1" />
@@ -29,20 +30,22 @@ const ShoppingCard = ({
         rating,
         reviews,
         colors: JSON.stringify(colors),
+        moreImages: JSON.stringify(moreImages),
       },
     });
   };
 
   return (
     <div className="relative flex flex-col w-[296px] h-[364px] rounded-[10px] border-2 border-solid border-black px-4 py-4 cursor-pointer mb-[45px] ">
-      <div className="flex w-[48px] h-[48px] rounded-full absolute top-3 left-3 items-center justify-center">
+      <div className="flex w-[48px] h-[48px] rounded-full absolute top-3 left-3 items-center justify-center bg-[#ffffff] shadow-xl ">
         <img
           src={favourite}
           className="w-1/2 h-1/2 object-contain"
           alt="Favourite"
         />
       </div>
-      <img src={image} className="w-full h-[47%]" alt="Product" />
+      
+      <img src={image} className="w-full h-[47%] " alt="Product"  />
       <div className="flex flex-row items-center justify-between mt-8">
         <p className="font-manrope text-[16px] font-[700] tracking-[1.6px] leading-[23px]">
           {name}

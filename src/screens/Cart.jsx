@@ -19,8 +19,6 @@ const handleContinueShopping = () => {
 };
     
   return (
-
-    
      <div className='w-full flex-1 flex-col divide-y-2 divide-solid divide-black '>
        <div className=' flex flex-row px-[104px] py-6 items-center justify-between'>
         <p className='font-manrope text-[40px] font-[600] tracking-[.15rem]  '>

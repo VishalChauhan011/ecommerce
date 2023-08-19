@@ -21,6 +21,7 @@ import space_grey from './space_grey.svg'
 import skull from './skull.png'
 import white_brand_icon from './white_brand_icon.png'
 import google from './google.svg'
+import watch1 from './watch1.png'
 
 export {
     brand_icon,
@@ -45,5 +46,6 @@ export {
     space_grey,
     skull,
     white_brand_icon,
-    google
+    google,
+    watch1
 }

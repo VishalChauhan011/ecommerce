@@ -13,9 +13,10 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const { state } = location;
-  const { id, name, price, description, rating, reviews, colors } = state;
+  const { id, name, price, description, rating, reviews, colors , moreImages } = state;
   const parsedColors = JSON.parse(colors);
-  console.log("COLORS==>", parsedColors);
+  const parsedMoreImages = JSON.parse(moreImages);
+  console.log("IMAGES==>", parsedMoreImages);
 
   const ratingStars = Array.from({ length: rating }, (_, index) => (
     <img
@@ -25,7 +26,6 @@ const ProductDetails = () => {
       className="mr-1 mt-2"
     />
   ));
-
   const handleAddToCart = () => {
     dispatch(addToCart({ id, name, price, description, reviews }));
   };
@@ -48,8 +48,8 @@ const ProductDetails = () => {
     <ToastContainer />
     <div className="flex flex-row px-[100px] justify-center ">
       <div className="flex flex-col  ">
-        <ProductDetailsCorousel />
-        <div className="flex flex-row gap-[80px] mt-[74px] justify-evenly ">
+        <ProductDetailsCorousel img = {parsedMoreImages} />
+        <div className="flex flex-row gap-[80px] mt-[60px] justify-evenly ">
           <div className="flex flex-col items-center">
             <img src={delivery} className="w-[22px] h-[22px] object-contain " />
             <p className="font-manrope text-[14px] font-[700] leading-[28px] tracking-[1.4px] ">
