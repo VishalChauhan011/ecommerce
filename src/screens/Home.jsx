@@ -47,6 +47,7 @@ const Home = () => {
             rating={item.rating}
             reviews={item.reviews}
             colors={item.colors}
+            moreImages={item.moreImages}
           />
         ))}
       </div>
