@@ -22,6 +22,21 @@ import skull from './skull.png'
 import white_brand_icon from './white_brand_icon.png'
 import google from './google.svg'
 import watch1 from './watch1.png'
+import head2 from './head2.png'
+import head3 from './head3.png'
+import head4 from './head4.png'
+import watch2 from './watch2.png'
+import watch3 from './watch3.png'
+import watch4 from './watch4.png'
+import iphone1 from './iphone1.png'
+import iphone2 from './iphone2.png'
+import iphone3 from './iphone3.png'
+import iphone4 from './iphone4.png'
+import nothing1 from './nothing1.png'
+import nothing2 from './nothing2.png'
+import nothing3 from './nothing3.png'
+import nothing4 from './nothing4.png'
+
 
 export {
     brand_icon,
@@ -47,5 +62,19 @@ export {
     skull,
     white_brand_icon,
     google,
-    watch1
+    watch1,
+    head2,
+    head3,
+    head4,
+    watch2,
+    watch3,
+    watch4,
+    iphone1,
+    iphone2,
+    iphone3,
+    iphone4,
+    nothing1,
+    nothing2,
+    nothing3,
+    nothing4
 }

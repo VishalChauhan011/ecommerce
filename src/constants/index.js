@@ -1,5 +1,5 @@
-import { home, products, rewards, cart } from "../assets"
-import { filter_icon, dropdown, headphone, space_grey, pink, green, silver, skyblue,watch1 } from '../assets'
+import { home, products, rewards, cart, head2, head3, head4, watch1, watch2, watch3, watch4, iphone1, iphone2, iphone3, iphone4, nothing1, nothing2, nothing4, nothing3 } from "../assets"
+import { filter_icon, dropdown, headphone, space_grey, pink, green, silver, skyblue} from '../assets'
 import deep from '../assets/deep.png'
 
 export const navlinks = [
@@ -36,24 +36,19 @@ export const dummyData = [
     },
     {
       name: 'Image 2',
-      img: headphone
+      img: head2
     },
     {
       name: 'Image 3',
-      img: headphone
+      img: head3
     },
     {
       name: 'Image 4', 
-      img: headphone
-    },
-     
-    {
-      name: 'Image 5',
-      img: headphone
-     }],
+      img: head4
+    }],
 
     "name": "Air Pods Max",
-    "price": 56000,
+    "price": "56,000",
     "description": "Best headphone for your ears",
     colors: [{
       name: ' Space Grey',
@@ -88,25 +83,20 @@ export const dummyData = [
     },
     {
       name: 'Image 2',
-      img: deep
+      img: watch2
     },
     {
       name: 'Image 3',
-      img: headphone
+      img: watch3
     },
     {
       name: 'Image 4', 
-      img: headphone
-    },
-     
-    {
-      name: 'Image 5',
-      img: headphone
-     }],
+      img: watch4
+    }],
 
-    "name": "Wireless",
-    "price": 3500,
-    "description": "Crystal-clear sound for your music",
+    "name": "Fossil Gen 6",
+    "price": "23,995",
+    "description": "Elevate your wrist with advanced smartwatch.",
     
     colors: [{
       name: ' Space Grey',
@@ -134,31 +124,26 @@ export const dummyData = [
   {
     "key": 3,
     "id": 3,
-    "image": headphone,
+    "image": iphone1,
     moreImages: [{
       name: 'Image 1',
-      img: headphone
+      img: iphone1
     },
     {
       name: 'Image 2',
-      img: headphone
+      img: iphone2
     },
     {
       name: 'Image 3',
-      img: headphone
+      img: iphone3
     },
     {
       name: 'Image 4', 
-      img: headphone
-    },
-     
-    {
-      name: 'Image 5',
-      img: headphone
-     }],
-    "name": "Noise-Canceling",
-    "price": 8900,
-    "description": "Immersive listening experience",
+      img: iphone4
+    },],
+    "name": "iPhone 14",
+    "price": "97,999",
+    "description": "Nice Specs and compatible.",
     colors: [{
       name: ' Space Grey',
       img: space_grey
@@ -185,31 +170,26 @@ export const dummyData = [
   {
     "key": 4,
     "id": 4,
-    "image": headphone,
+    "image": nothing1,
     moreImages: [{
       name: 'Image 1',
-      img: headphone
+      img: nothing1
     },
     {
       name: 'Image 2',
-      img: headphone
+      img: nothing2
     },
     {
       name: 'Image 3',
-      img: headphone
+      img: nothing3
     },
     {
       name: 'Image 4', 
-      img: headphone
-    },
-     
-    {
-      name: 'Image 5',
-      img: headphone
-     }],
-    "name": "Air Pods Max",
-    "price": 56000,
-    "description": "Best headphone for your ears",
+      img: nothing4
+    }],
+    "name": "Nothing Ear(2)",
+    "price": "9,999",
+    "description": "Experience exceptional wireless audio quality.",
     colors: [{
       name: ' Space Grey',
       img: space_grey
@@ -335,107 +315,4 @@ export const dummyData = [
     "rating": 3,
     "reviews": 32
   },
-  {
-    "key": 7,
-    "id": 7,
-    "image": headphone,
-    moreImages: [{
-      name: 'Image 1',
-      img: headphone
-    },
-    {
-      name: 'Image 2',
-      img: headphone
-    },
-    {
-      name: 'Image 3',
-      img: headphone
-    },
-    {
-      name: 'Image 4', 
-      img: headphone
-    },
-     
-    {
-      name: 'Image 5',
-      img: headphone
-     }],
-
-    "name": "Wireless Earbuds",
-    "price": 3500,
-    "description": "Crystal-clear sound for your music",
-    colors: [{
-      name: ' Space Grey',
-      img: space_grey
-    },
-    {
-      name: 'Pink',
-      img: pink
-    },
-    {
-      name: 'Green',
-      img: green
-    },
-    {
-      name: 'Silver',
-      img: silver
-    },
-    {
-      name: 'Sky Blue',
-      img: skyblue
-    }],
-    "rating": 4,
-    "reviews": 15
-  },
-  {
-    "key": 8,
-    "id": 8,
-    "image": headphone,
-    moreImages: [{
-      name: 'Image 1',
-      img: headphone
-    },
-    {
-      name: 'Image 2',
-      img: headphone
-    },
-    {
-      name: 'Image 3',
-      img: headphone
-    },
-    {
-      name: 'Image 4', 
-      img: headphone
-    },
-     
-    {
-      name: 'Image 5',
-      img: headphone
-     }],
-    "name": "Noise-Canceling",
-    "price": 8900,
-    "description": "Immersive listening experience",
-    colors: [{
-      name: ' Space Grey',
-      img: space_grey
-    },
-    {
-      name: 'Pink',
-      img: pink
-    },
-    {
-      name: 'Green',
-      img: green
-    },
-    {
-      name: 'Silver',
-      img: silver
-    },
-    {
-      name: 'Sky Blue',
-      img: skyblue
-    }],
-    "rating": 4,
-    "reviews": 32
-  }
 ]
