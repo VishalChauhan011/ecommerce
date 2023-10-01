@@ -36,6 +36,8 @@ import nothing1 from './nothing1.png'
 import nothing2 from './nothing2.png'
 import nothing3 from './nothing3.png'
 import nothing4 from './nothing4.png'
+import coin from './coin.svg'
+import reward_headphone from './reward_headphone.png'
 
 
 export {
@@ -76,5 +78,7 @@ export {
     nothing1,
     nothing2,
     nothing3,
-    nothing4
+    nothing4,
+    coin,
+    reward_headphone
 }
