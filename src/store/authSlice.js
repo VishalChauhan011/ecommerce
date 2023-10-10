@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // import react-cookie
 import Cookie from "react-cookie"
-import axios from "axios";
+import axios from "../config/axios";
 import { dummyData } from "../constants";
 
-const LOGIN_URL = "http://localhost:5000/api/auth/login";
-const SIGNUP_URL = "http://localhost:5000/api/auth/register";
-const CHECK_USER_URL = "http://localhost:5000/api/auth/check";
-const LOGOUT_URL = "http://localhost:5000/api/auth/logout";
+// const LOGIN_URL = "http://localhost:8000/api/v1/auth/login";
+// const SIGNUP_URL = "http://localhost:5000/api/v1/auth/signup";
+// // const CHECK_USER_URL = "http://localhost:5000/api/v1/auth";
+// const LOGOUT_URL = "http://localhost:5000/api/v1/";
 
 const initialState = {
   isLoading: false,
@@ -20,7 +20,7 @@ export const logout = createAsyncThunk(
   "auth/logout",
   async (payload, thunkAPI) => {
     try {
-      const response = await axios.get(LOGOUT_URL, {
+      const response = await axios.get("/auth/logout", {
         withCredentials: true,
       });
       return response.data;
@@ -31,44 +31,43 @@ export const logout = createAsyncThunk(
 );
 
 export const login = createAsyncThunk(
-    "auth/login",
-    async (payload, thunkAPI) => {
-      try {
-        // Save the response data in local storage
-        localStorage.setItem('authData', JSON.stringify(payload));
-  
-        return dummyData;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.response.data);
-      }
+  "auth/login",
+  async (payload, thunkAPI) => {
+    try {
+      const response = await axios.post("/auth/login", payload); 
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
     }
-  );
+  }
+);
+
 
 export const signup = createAsyncThunk(
   "auth/signup",
   async (payload, thunkAPI) => {
     try {
-      const response = await axios.post(SIGNUP_URL, payload);
-      return response.data;
+      const response = await axios.post("/auth/signup", payload);
+      return response.data; 
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
     }
   }
 );
 
-export const checkUser = createAsyncThunk(
-  "auth/checkUser",
-  async (payload, thunkAPI) => {
-    try {
-      const response = await axios.get(CHECK_USER_URL, {
-        withCredentials: true,
-      });
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data);
-    }
-  }
-);
+// export const checkUser = createAsyncThunk(
+//   "auth/checkUser",
+//   async (payload, thunkAPI) => {
+//     try {
+//       const response = await axios.get(CHECK_USER_URL, {
+//         withCredentials: true,
+//       });
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.response.data);
+//     }
+//   }
+// );
 
 export const authSlice = createSlice({
   name: "auth",
@@ -99,17 +98,17 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.error;
       })
-      .addCase(checkUser.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(checkUser.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.user = action.payload?.user?._id;
-      })
-      .addCase(checkUser.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.error;
-      })
+      // .addCase(checkUser.pending, (state) => {
+      //   state.isLoading = true;
+      // })
+      // .addCase(checkUser.fulfilled, (state, action) => {
+      //   state.isLoading = false;
+      //   state.user = action.payload?.user?._id;
+      // })
+      // .addCase(checkUser.rejected, (state, action) => {
+      //   state.isLoading = false;
+      //   state.error = action.error;
+      // })
       .addCase(logout.pending,(state)=>{
         state.isLoading = true;
       })

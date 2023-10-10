@@ -12,14 +12,19 @@ import Login from "./screens/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor, store } from "./store/store";
+import NewTest from "./screens/NewTest";
+import SignUp from "./screens/SignUp";
 
 function App() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
+   
           <Routes>
+          <Route path="/signUp" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
+            
           </Routes>
           <Layout>
             <Routes>
