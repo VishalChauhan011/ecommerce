@@ -16,7 +16,7 @@ const Login = () => {
     setIsChecked(!isChecked);
   };
   const handleSignUpClick = () => {
-    navigate("/signIn");
+    navigate("/signUp");
   };
 
   const validateSchema = Yup.object({
