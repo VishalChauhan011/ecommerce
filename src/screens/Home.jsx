@@ -20,7 +20,9 @@ const Home = () => {
           <span className="block">Our</span>
           <span className="block">Products</span>
         </p>
-        <div className="flex flex-row w-[399px] h-[52px] divide-x-2 divide-solid divide-black rounded-full border-2 border-b-4 border-solid border-black items-center justify-evenly">
+        <div className="flex flex-row w-[399px] h-[52px] divide-x-2 divide-solid
+         divide-black rounded-full border-2 border-b-4
+          border-solid border-black items-center justify-evenly">
           <div className="flex flex-row items-center ">
             <p className="font-manrope text-[20px] font-[400] text-center">
               All Filters

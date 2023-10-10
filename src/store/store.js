@@ -3,6 +3,7 @@ import storage from 'redux-persist/lib/storage'
 import authReducer from './authSlice'
 import { persistStore, persistReducer } from 'redux-persist'
 import thunk from 'redux-thunk'
+import sidebarColorReducer from './sidebarColorReducer'
 
 import cartSlice from './cartSlice'
 
@@ -17,6 +18,8 @@ export const store = configureStore({
   reducer: {
     cart: cartSlice,
     auth: persistedReducer,
+    sidebarColor: sidebarColorReducer,
+
   },
   middleware: [thunk],
 })

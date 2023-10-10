@@ -2,28 +2,34 @@ import { home, products, rewards, cart, head2, head3, head4, watch1, watch2, wat
 import { filter_icon, dropdown, headphone, space_grey, pink, green, silver, skyblue} from '../assets'
 import deep from '../assets/deep.png'
 
+// constants.js
 export const navlinks = [
   {
     name: 'Home',
     icon: home,
-    path: '/'
+    path: '/',
+    disabled: false,
   },
   {
     name: 'Products',
     icon: products,
-    path: '/product'
+    path: '/product',
+    disabled: false,
   },
   {
     name: 'Cart',
     icon: cart,
-    path: '/cart'
+    path: '/cart',
+    disabled: false,
   },
   {
     name: 'Rewards',
     icon: rewards,
-    path: '/rewards'
+    path: '/rewards',
+    disabled: false,
   },
-]
+];
+
 
 export const dummyData = [
   {

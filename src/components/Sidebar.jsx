@@ -14,14 +14,14 @@ const Icon = ({
 }) => {
   return (
     <div
-      className={`flex flex-row w-[190px] h-[61px] items-center p-2 hover:border-2 hover:border-black hover:border-solid rounded-full ${
+      className={`flex flex-row w-[190px] h-[61px] items-center p-2 rounded-full ${
         isActive &&
         isActive === name &&
-        "bg-[#B4AFF0] rounded-full border-t-2 border-l-2 border-r-2 border-b-8 border-solid border-black "
+        "bg-[#B4AFF0] rounded-full border-t-2 border-l-2 border-r-2 border-b-8 border-solid border-black transition-all duration-1"
       } ${!disabled && "cursor-pointer"} ${styles} `}
       onClick={handleClick}
     >
-      <img src={icon} className="w-1/2 h-1/2" />
+      <img src={icon} className="w-1/2 h-1/2" alt="" />
       <p
         className={`font-manrope text-[20px] text-black/50 ${
           isActive && isActive === name && "!text-black font-bold"
@@ -63,13 +63,13 @@ const Sidebar = () => {
         ))}
       </div>
       <div className="w-[190px] h-[226px] bg-[#D6E35E] border-2 border-black border-solid rounded-[20px] mt-[30px] relative ">
-        <img src={star} className="absolute top-[-50px] right-[-30px] " />
+        <img src={star} className="absolute top-[-50px] right-[-30px] " alt="" />
         <p className="font-manrope text-[26px] font-bold ml-[20px] ">
           TREND PRODUCTS
         </p>
-        <img src={vr} className="absolute right-[17px] top-[75px] " />
+        <img src={vr} className="absolute right-[17px] top-[75px] " alt="" />
         <div className="flex w-[33px] h-[33px] rounded-full bg-black absolute right-4 bottom-4 items-center justify-center ">
-          <img src={arrow_right} />
+          <img src={arrow_right} alt="" />
         </div>
       </div>
     </div>
