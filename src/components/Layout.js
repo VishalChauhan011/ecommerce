@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
       )}
 
       {location.pathname === "/login" && <main>{Login}</main>}
-      {location.pathname === "/signIn" && <main>{SignUp}</main>}
+      {location.pathname === "/signUp" && <main>{SignUp}</main>}
     </div>
   );
 };
