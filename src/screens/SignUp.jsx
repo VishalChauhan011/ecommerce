@@ -4,7 +4,6 @@ import "../fonts/MajorMonoDisplay-Regular.ttf";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signup } from "../store/authSlice";
-import { ToastContainer, toast } from "react-toastify";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -34,13 +33,13 @@ const SignUp = () => {
 
     dispatch(signup(values))
       .unwrap()
-      .then(() => navigate("/login"));
+      .then(() => navigate("/"));
   };
 
   return (
-    
     <div className="flex flex-row">
       <div className="flex flex-col w-[50%] h-screen bg-[#0E0E0E] px-[101px] ">
+
         <div className="w-[283px] h-[93px] mt-[49px]  ">
           <img src={white_brand_icon} />
         </div>
@@ -72,6 +71,7 @@ const SignUp = () => {
               industry. Lorem Ipsum has been.
             </p>
           </div>
+
         </div>
       </div>
 
@@ -82,7 +82,7 @@ const SignUp = () => {
         <p className="font-manrope text-black/75 font-[400] leading-normal tracking-[0.96px] ">
           Start your Journey to buy and Earn Rewards
         </p>
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={handleSubmit}>
           <p className="font-manrope text-[20px] font-[400] leading-normal tracking-[1px] mt-[25px]">
             Full Name
           </p>
@@ -91,18 +91,15 @@ const SignUp = () => {
             id="name"
             name="name"
             placeholder="Enter Your Full Name"
-            className={`border border-black/50 border-solid w-[457px] h-[43px] rounded-[5px] pl-[19px] mt-[9px] ${
-              nameError ? "border-red-700" : ""
-            }`}
+            className={`border border-black/50 border-solid w-[457px] h-[43px] rounded-[5px] pl-[19px] mt-[9px] ${nameError ? "border-red-700" : ""
+              }`}
             onChange={(e) => {
               setName(e.target.value);
               setNameError("");
             }}
             value={name}
           />
-          {nameError && (
-            <div className="error text-red-700 font-manrope">{nameError}</div>
-          )}
+          {nameError && <div className="error text-red-700 font-manrope">{nameError}</div>}
 
           <p className="font-manrope text-[20px] font-[400] leading-normal tracking-[1px] mt-[25px]">
             Email
@@ -112,9 +109,8 @@ const SignUp = () => {
             id="username"
             name="username"
             placeholder="Enter Your Email"
-            className={`border border-black/50 border-solid w-[457px] h-[43px] rounded-[5px] pl-[19px] mt-[9px] ${
-              emailError ? "border-red-700" : ""
-            }`}
+            className={`border border-black/50 border-solid w-[457px] h-[43px] rounded-[5px] pl-[19px] mt-[9px] ${emailError ? "border-red-700" : ""
+              }`}
             onChange={(e) => {
               setemail(e.target.value);
               setemailError("");
@@ -133,9 +129,8 @@ const SignUp = () => {
             id="password"
             name="password"
             placeholder="Enter Password"
-            className={`border border-black/50 border-solid w-[457px] h-[43px] rounded-[5px] pl-[19px] mt-[9px] ${
-              passwordError ? "border-red-700" : ""
-            }`}
+            className={`border border-black/50 border-solid w-[457px] h-[43px] rounded-[5px] pl-[19px] mt-[9px] ${passwordError ? "border-red-700" : ""
+              }`}
             onChange={(e) => {
               setPassword(e.target.value);
               setPasswordError("");
@@ -143,9 +138,7 @@ const SignUp = () => {
             value={password}
           />
           {passwordError && (
-            <div className="error text-red-700 font-manrope">
-              {passwordError}
-            </div>
+            <div className="error text-red-700 font-manrope">{passwordError}</div>
           )}
 
           <div className="flex flex-col gap-[15px] mt-[49px] items-center ">
