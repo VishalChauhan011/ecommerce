@@ -19,6 +19,7 @@ export const store = configureStore({
     cart: cartSlice,
     auth: persistedReducer,
     sidebarColor: sidebarColorReducer,
+
   },
   middleware: [thunk],
 })
