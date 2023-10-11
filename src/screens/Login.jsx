@@ -1,16 +1,55 @@
 import React from "react";
 import { white_brand_icon, skull, google } from "../assets";
 import "../fonts/MajorMonoDisplay-Regular.ttf";
-import { Formik } from "formik";
-import { useDispatch } from "react-redux";
+import { Formik, Form } from "formik";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import * as Yup from "yup";
 import { login } from "../store/authSlice";
 import { useState } from "react";
+import { useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import * as Yup from "yup";
+import { Field, ErrorMessage } from "formik";
+
 const Login = () => {
+  const [isChecked, setIsChecked] = useState(false);
+
+  // const { isAuthenticated } = useSelector((state) => state.auth);
+  // useEffect(() => {
+
+  //   if(isAuthenticated)
+  //   navigate("/")
+  // }, []);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [isChecked, setIsChecked] = useState(false);
+  const [email, setemail] = useState("");
+  const [emailError, setemailError] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  // const [token, setToken] = useState("");
+
+  const SignupSchema = Yup.object().shape({
+    email: Yup.string().email("Invalid email").required("Required"),
+    password: Yup.string()
+      .min(8, "Too short!")
+      .max(15, "Too Long!")
+      .required("Required"),
+  });
+
+  const notify = () => {
+    toast.error("Not registered, Sign Up", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
 
   const handleCheckboxClick = () => {
     setIsChecked(!isChecked);
@@ -19,20 +58,30 @@ const Login = () => {
     navigate("/signUp");
   };
 
-  const validateSchema = Yup.object({
-    username: Yup.string()
-      .min(3, "Must be 3 characters or more")
-      .max(15, "Must be 15 characters or less")
-      .required("required to add an email"),
-    password: Yup.string()
-      .min(5, "Must be 8 characters or more")
-      .max(20, "Must be 20 characters or less")
-      .required("required to add a password"),
+  const handleSubmit = (values) => {
+    // e.preventDefault();
+
+    const {email,password}=values;
+    // if (!email) {
+    //   setemailError("Email is required");
+    // }
+    // if (!password) {
+    //   setPasswordError("Password is required");
+    //   return;
+    // }
+
+    const credentials = { email, password };
+    dispatch(login(credentials))
+      .unwrap()
+      .then(() => {
+          navigate("/");
+      })
+    }
   
-  });
 
   return (
     <div className="flex flex-row">
+      {/* <ToastContainer /> */}
       <div className="flex flex-col w-[50%] h-screen bg-[#0E0E0E] px-[101px] ">
         <div className="w-[283px] h-[93px] mt-[49px]  ">
           <img src={white_brand_icon} />
@@ -75,125 +124,99 @@ const Login = () => {
           Start Shopping and get rewards for next shop
         </p>
         <Formik
-          initialValues={{ username: "", password: "" }}
-          validationSchema={validateSchema}
-          onSubmit={(values) => {
-            dispatch(login(values))
-              .unwrap()
-              .then(() => navigate("/"), console.log("VALUES ==>", values));
+          initialValues={{
+            email: "",
+            password: "",
           }}
+          validationSchema={SignupSchema}
+          onSubmit={handleSubmit}
         >
-          {(formik) => (
-            <form onSubmit={formik.handleSubmit}>
+          <Form>
+            <p className="font-manrope text-[20px] font-[400] leading-normal tracking-[1px] mt-[25px]">
+              Email
+            </p>
+            <Field
+              type="text"
+              id="email"
+              name="email"
+              placeholder="Enter Your Email"
+              className={`border border-black/50 border-solid w-[457px] h-[43px] rounded-[5px] pl-[19px] mt-[9px] ${
+                emailError ? "border-red-700" : ""
+              }`}
+            />
+            <ErrorMessage
+              name="email"
+              component="div"
+              className="error text-red-700 font-manrope"
+            />
+
+            <p className="font-manrope text-[20px] font-[400] leading-normal tracking-[1px] mt-[25px]">
+              Create Password
+            </p>
+            <Field
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter Password"
+              className={`border border-black/50 border-solid w-[457px] h-[43px] rounded-[5px] pl-[19px] mt-[9px] ${
+                passwordError ? "border-red-700" : ""
+              }`}
+            />
+            <ErrorMessage
+              name="password"
+              component="div"
+              className="error text-red-700 font-manrope"
+            />
+
+            <div className="flex flex-row mt-[14px]">
+              <input
+                type="checkbox"
+                className="w-[11px] h-[11px]"
+                checked={isChecked}
+                onChange={handleCheckboxClick}
+              />
               <p
-                className={`font-manrope text-[20px] font-[400] leading-normal tracking-[1px] mt-[25px] ${
-                  formik.errors.username && formik.touched.username
-                    ? "text-red-700"
-                    : ""
+                className={`font-manrope text-[12px] font-[700] leading-normal ml-[6px] mr-[226px] ${
+                  isChecked ? "text-blue-500" : "text-black/50"
                 }`}
               >
-                Email
+                Remember for 30 days
               </p>
-              <input
-                id="username"
-                name="username"
-                placeholder="Enter Your Email"
-                className={`border border-black/50 border-solid w-[457px] h-[43px] rounded-[5px] pl-[19px] mt-[9px] ${
-                  formik.errors.username && formik.touched.username
-                    ? "border-red-700"
-                    : ""
-                }`}
-                onChange={formik.handleChange}
-                value={formik.values.username}
-              />
-              {formik.errors.username && formik.touched.username ? (
-                <div className="error text-red-700">
-                  {formik.errors.username}
-                </div>
-              ) : (
-                <div className="error"></div>
-              )}
-              <p
-                className={`font-manrope text-[20px] font-[400] leading-normal tracking-[1px] mt-[25px] ${
-                  formik.errors.password && formik.touched.password
-                    ? "text-red-700"
-                    : ""
-                }`}
+              <p className="font-manrope  text-[12px] font-[600] leading-normal cursor-pointer ">
+                Forgot Password?
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-[15px] mt-[49px] items-center ">
+              <button
+                type="submit"
+                className="flex w-[313px] h-[45px] bg-[#0E0E0E] rounded-full items-center justify-center cursor-pointer "
+                // disabled={isSubmitting}
               >
-                {" "}
-                Password
+                <p className="font-manrope text-[14px] text-white font-[800] leading-normal tracking-[0.42px] ">
+                  Sign In
+                </p>
+              </button>
+
+              <div className="flex flex-row w-[313px] h-[45px] rounded-full items-center justify-center border border-black/25 border-solid cursor-pointer ">
+                <img src={google} />
+                <p className="font-manrope text-[14px] text-black/50 font-[800] leading-normal tracking-[0.42px] ml-[10px] ">
+                  Sign Up With Google
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-row items-center justify-center mt-[15px] ">
+              <p className="font-manrope text-[12px] text-black/50 font-[600] leading-normal mr-2 cursor-pointer ">
+                Don't have an account?
               </p>
-
-              <input
-                id="password"
-                name="password"
-                type="password"
-                placeholder="Enter Password"
-                className={`border border-black/50 border-solid w-[457px] h-[43px] rounded-[5px] pl-[19px] mt-[9px] ${
-                  formik.errors.password && formik.touched.password
-                    ? "border-red-700"
-                    : ""
-                }`}
-                onChange={formik.handleChange}
-                value={formik.values.password}
-              />
-              {formik.errors.password && formik.touched.password ? (
-                <div className="error text-red-700">
-                  {formik.errors.password}
-                </div>
-              ) : (
-                <div className="error"></div>
-              )}
-
-              <div className="flex flex-row mt-[14px]">
-                <input
-                  type="checkbox"
-                  className="w-[11px] h-[11px]"
-                  checked={isChecked} 
-                  onChange={handleCheckboxClick}
-                />
-                <p
-                  className={`font-manrope text-[12px] font-[700] leading-normal ml-[6px] mr-[226px] ${
-                    isChecked ? "text-blue-500" : "text-black/50" 
-                  }`}
-                >
-                  Remember for 30 days
-                </p>
-                <p className="font-manrope  text-[12px] font-[600] leading-normal cursor-pointer ">
-                  Forgot Password?
-                </p>
-              </div>
-
-              <div className="flex flex-col gap-[15px] mt-[49px] items-center ">
-                <button
-                  type="submit"
-                  className="flex w-[313px] h-[45px] bg-[#0E0E0E] rounded-full items-center justify-center cursor-pointer "
-                >
-                  <p className="font-manrope text-[14px] text-white font-[800] leading-normal tracking-[0.42px] ">
-                    Sign In
-                  </p>
-                </button>
-
-                <div className="flex flex-row w-[313px] h-[45px] rounded-full items-center justify-center border border-black/25 border-solid cursor-pointer ">
-                  <img src={google} />
-                  <p className="font-manrope text-[14px] text-black/50 font-[800] leading-normal tracking-[0.42px] ml-[10px] ">
-                    Sign Up With Google
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-row items-center justify-center mt-[15px] ">
-                <p className="font-manrope text-[12px] text-black/50 font-[600] leading-normal mr-2 cursor-pointer ">
-                  Don't have an account?
-                </p>
-                <p
-          className="font-manrope text-[#0A1020] font-[600] text-[12px] leading-normal cursor-pointer "
-          onClick={handleSignUpClick}
-        >
-          Sign Up
-        </p>
-              </div>
-            </form>
-          )}
+              <p
+                className="font-manrope text-[#0A1020] font-[600] text-[12px] leading-normal cursor-pointer "
+                onClick={handleSignUpClick}
+              >
+                Sign Up
+              </p>
+            </div>
+          </Form>
         </Formik>
       </div>
     </div>

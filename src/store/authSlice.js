@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // import react-cookie
-import Cookie from "react-cookie"
+import Cookie from "react-cookie";
 import axios from "../config/axios";
 import { dummyData } from "../constants";
 
@@ -34,7 +34,8 @@ export const login = createAsyncThunk(
   "auth/login",
   async (payload, thunkAPI) => {
     try {
-      const response = await axios.post("/auth/login", payload); 
+      const response = await axios.post("/auth/login", payload);
+      console.log("RESPONSE ==>", response.data.user)
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -42,13 +43,12 @@ export const login = createAsyncThunk(
   }
 );
 
-
 export const signup = createAsyncThunk(
   "auth/signup",
   async (payload, thunkAPI) => {
     try {
       const response = await axios.post("/auth/signup", payload);
-      return response.data; 
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
     }
@@ -83,6 +83,7 @@ export const authSlice = createSlice({
         state.isAuthenticated = true;
       })
       .addCase(login.rejected, (state, action) => {
+
         state.isLoading = false;
         state.error = action.error;
         state.isAuthenticated = false;
@@ -98,29 +99,18 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.error;
       })
-      // .addCase(checkUser.pending, (state) => {
-      //   state.isLoading = true;
-      // })
-      // .addCase(checkUser.fulfilled, (state, action) => {
-      //   state.isLoading = false;
-      //   state.user = action.payload?.user?._id;
-      // })
-      // .addCase(checkUser.rejected, (state, action) => {
-      //   state.isLoading = false;
-      //   state.error = action.error;
-      // })
-      .addCase(logout.pending,(state)=>{
+      .addCase(logout.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(logout.fulfilled,(state,action)=>{
+      .addCase(logout.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = null;
         state.isAuthenticated = false;
       })
-      .addCase(logout.rejected,(state,action)=>{
+      .addCase(logout.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error;
-      })
+      });
   },
 });
 
