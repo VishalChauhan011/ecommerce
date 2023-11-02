@@ -1,6 +1,4 @@
 import React from "react";
-import { useEffect , useState } from "react";
-
 import {
   filter_icon,
   dropdown,
@@ -14,24 +12,7 @@ import {
 import ShoppingCard from "../components/ShoppingCard";
 import { dummyData } from "../constants";
 
-
 const Home = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch(process.env.REACT_APP_API_URL)
-      .then((response) => response.json())
-      .then((data) => {
-        setProducts(data.products);
-        setLoading(false); 
-      })
-      .catch((error) => {
-        console.error("Error fetching products:", error);
-        setLoading(false); 
-      });
-  }, []);
-  //  console.log("id=>",products[0]._id);
   return (
     <div className=" flex-1 flex-col  divide-y-2 divide-solid divide-black ">
       <div className="flex flex-row px-[104px] py-6 items-center justify-between">
@@ -57,22 +38,21 @@ const Home = () => {
         </div>
       </div>
       <div className="px-[103px] py-16 flex flex-wrap gap-[21px] items-center justify-center">
-        {products.map((item) => (
+        {dummyData.map((item) => (
           <ShoppingCard
-            key={item?.key}
-            id={item?._id}
-            photos={item?.photos}
-            name={item?.name}
-            price={item?.price}
-            description={item?.description}
-            rating={item?.rating}
-            reviews={item?.reviews}
-            colors={item?.colors}
-            moreImages={item?.moreImages}
+            key={item.key}
+            id={item.id}
+            image={item.image}
+            name={item.name}
+            price={item.price}
+            description={item.description}
+            rating={item.rating}
+            reviews={item.reviews}
+            colors={item.colors}
+            moreImages={item.moreImages}
           />
         ))}
       </div>
-     
     </div>
   );
 };

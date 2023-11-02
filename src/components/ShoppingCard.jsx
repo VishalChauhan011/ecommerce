@@ -3,9 +3,8 @@ import { favourite, rating_star, headphone } from "../assets";
 import { useNavigate } from "react-router-dom";
 
 const ShoppingCard = ({
-  key,
   id,
-  photos,
+  image,
   name,
   price,
   description,
@@ -17,21 +16,21 @@ const ShoppingCard = ({
   const ratingStars = Array.from({ length: rating }, (_, index) => (
     <img key={index} src={rating_star} alt={`Star ${index}`} className="mr-1" />
   ));
+
   const navigate = useNavigate();
 
   const handleClick = () => {
     navigate("/products", {
       state: {
-        key,
         id,
-        photos,
+        image,
         name,
         price,
         description,
         rating,
         reviews,
         colors: JSON.stringify(colors),
-        moreImages: JSON.stringify(photos),
+        moreImages: JSON.stringify(moreImages),
       },
     });
   };
@@ -46,7 +45,7 @@ const ShoppingCard = ({
         />
       </div>
       
-      <img src={photos[0].url} className="w-full h-[47%] " alt="Product"  />
+      <img src={image} className="w-full h-[47%] " alt="Product"  />
       <div className="flex flex-row items-center justify-between mt-8">
         <p className="font-manrope text-[16px] font-[700] tracking-[1.6px] leading-[23px]">
           {name}
@@ -80,4 +79,6 @@ const ShoppingCard = ({
 
 export default ShoppingCard;
 
-
+{/* <p className="font-manrope text-[16px] font-[700] text-white">
+            Shop Now
+          </p> */}

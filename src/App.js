@@ -15,43 +15,27 @@ import { persistor, store } from "./store/store";
 import NewTest from "./screens/NewTest";
 import SignUp from "./screens/SignUp";
 import Profile from "./components/Profile";
-import Orders from "./components/Orders";
 
 function App() {
+
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
+   
           <Routes>
-            <Route path="/signUp" element={<SignUp />} />
+          <Route path="/signUp" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
-
-            <Route
-              path="/profile"
-              exact
-              element={
-                <PrivateRoute>
-                  <Profile />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/order"
-              element={
-                <PrivateRoute>
-                  {" "}
-                  <Orders />{" "}
-                </PrivateRoute>
-              }
-            />
+            <Route path="/profile" exact element={<Profile/>}/>
           </Routes>
           <Layout>
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home/>} />
               <Route path="/products" element={<ProductDetails />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/rewards" element={<Rewards />} />
               <Route path="/product" element={<Products />} />
+             
             </Routes>
           </Layout>
         </BrowserRouter>

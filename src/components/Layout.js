@@ -5,14 +5,13 @@ import Sidebar from "./Sidebar.jsx";
 import Login from "../screens/Login.jsx";
 import SignUp from "../screens/SignUp.jsx";
 import Profile from "./Profile.jsx";
-import Orders from "./Orders.jsx";
 
 const Layout = ({ children }) => {
   const location = useLocation();
 
   const shouldRenderNavbarAndSidebar = () => {
    
-    if (location.pathname === "/login" || location.pathname === "/signUp" || location.pathname==="/profile" || location.pathname==="/order") {
+    if (location.pathname === "/login" || location.pathname === "/signUp" || location.pathname==="/profile") {
       return false; 
     }
 
@@ -34,7 +33,6 @@ const Layout = ({ children }) => {
       {location.pathname === "/login" && <main>{Login}</main>}
       {location.pathname === "/signUp" && <main>{SignUp}</main>}
       {location.pathname === "/profile" && <main>{Profile}</main>}
-      {location.pathname === "/order" && <main>{Orders}</main>}
     </div>
   );
 };

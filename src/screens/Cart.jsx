@@ -43,13 +43,12 @@ const handleContinueShopping = () => {
      {cartItems.map((item) => (
        <CartItems key={item.key} item={item} />
       ))}
+      </div>
 
-       <div className='flex justify-center'>
+      <div className='flex justify-center'>
       <button className='bg-[#0E0E0E] text-[#ffffff] font-manrope
-       font-bold text-[20px] px-[80px] py-[10px] rounded-[10px] cursor-pointer hover:opacity-80'>Checkout</button>
+       font-bold text-[20px] px-[80px] py-[10px] rounded-[10px]'>Checkout</button>
       </div>
-      </div>
-     
       </>
       )}
       {cartItems.length < 1 && (

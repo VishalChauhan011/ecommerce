@@ -16,7 +16,7 @@ const ProductDetailsCorousel = ({img}) => {
             >
                 {img.map((item) => (
                     <div className="flex justify-center">
-                        <img key = {item.id} src={item.url} alt="Product" className="w-[650px] h-[610px] object-contain" />
+                        <img src={item.img} alt="Product" className="w-[650px] h-[610px] object-contain" />
                     </div>
                 ))}
             </Carousel>
