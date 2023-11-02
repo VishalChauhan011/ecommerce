@@ -38,7 +38,10 @@ import nothing3 from './nothing3.png'
 import nothing4 from './nothing4.png'
 import coin from './coin.svg'
 import reward_headphone from './reward_headphone.png'
-
+import profile from './profile.svg'
+import avatar from './avatar.png'
+import order from './order.svg'
+import credit from './credit.svg'
 
 export {
     brand_icon,
@@ -80,5 +83,9 @@ export {
     nothing3,
     nothing4,
     coin,
-    reward_headphone
+    reward_headphone,
+    profile,
+    avatar,
+    order,
+    credit
 }

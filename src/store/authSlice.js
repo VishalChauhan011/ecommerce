@@ -11,7 +11,7 @@ import { dummyData } from "../constants";
 
 const initialState = {
   isLoading: false,
-  user: null,
+  user: [],
   isAuthenticated: false,
   error: null,
 };
@@ -79,7 +79,7 @@ export const authSlice = createSlice({
       })
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.user = action.payload?.user?._id;
+        state.user = action.payload?.user;
         state.isAuthenticated = true;
       })
       .addCase(login.rejected, (state, action) => {

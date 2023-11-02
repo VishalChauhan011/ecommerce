@@ -14,11 +14,9 @@ const CartItems = ({item}) => {
   return (
     <div className='flex justify-center'>
       <div className='flex w-[819px] h-[204px] rounded-[10px]
-       border border-solid border-black my-[20px] hover:border-r-4 hover:border-b-4'>
+       border border-solid border-black my-[20px] hover:border-r-2 hover:border-b-2'>
        
-          <img src={deep} alt="Product" className='w-[190px] h-[161px] p-5 '  />
-       
-
+          <img src={item.photos[0].url} alt="Product" className='w-[190px] h-[161px] p-5 '  />
         <div className="flex flex-col pt-5 pl-3 font-manrope ">
             <div className='text-[24px] font-bold'>
             <p>{item.name}</p>
@@ -46,11 +44,11 @@ const CartItems = ({item}) => {
             <img src={ship} alt='Remove' className='w-4 h-4 mr-2' />
             Ships in 1-3 business days
             </div>
-            <div className='flex justify-end text-[#0071E3] font-bold tracking-[0.075rem] font-manrope cursor-pointer
+            <div className='flex justify-end text-[#0071E3] tracking-[0.075rem] font-manrope cursor-pointer hover:font-bold
             ' onClick={() =>
                 dispatch(removeFromCart({ id: item.id }))
             }>
-            <img src={remove} alt='Remove' className='w-4 h-4 mr-2'/>
+            <img src={remove} alt='Remove' className='w-4 h-4 mr-2 mt-[2px]'/>
                 Remove
                 </div>
         </div>
